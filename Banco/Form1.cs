@@ -162,5 +162,22 @@ namespace Banco
             formularioDeCadastro.ShowDialog();
         }
 
+        private void botaoImpostos_Click(object sender, EventArgs e)
+        {
+            ContaCorrente contaCC = new ContaCorrente();
+            contaCC.Deposita(200.0);
+
+            MessageBox.Show("imposto da conta corrente = " + contaCC.CalculaTributos());
+            ITributavel t = contaCC;
+
+            MessageBox.Show("imposto da conta pela interface = " + t.CalculaTributos());
+
+            SeguroDeVida sv = new SeguroDeVida();
+            MessageBox.Show("imposto do seguro = " + sv.CalculaTributos());
+
+            t = sv;
+            MessageBox.Show("imposto do seguro pela interface" + t.CalculaTributos());
+        }
+
     }
 }
