@@ -14,14 +14,9 @@ namespace Banco
 
 
         //METODOS ABSTRATOS
-        public abstract void Deposita(double valor)
-        {
-            //this.Saldo += valor;
-        }
+        public abstract void Deposita(double valor);
 
-        public abstract void Saca(double valor)
-        {
-            //this.Saldo -= valor;
-        }
+        public abstract void Saca(double valor);
+
     }
 }
