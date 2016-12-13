@@ -164,19 +164,16 @@ namespace Banco
 
         private void botaoImpostos_Click(object sender, EventArgs e)
         {
-            ContaCorrente contaCC = new ContaCorrente();
-            contaCC.Deposita(200.0);
-
-            MessageBox.Show("imposto da conta corrente = " + contaCC.CalculaTributos());
-            ITributavel t = contaCC;
-
-            MessageBox.Show("imposto da conta pela interface = " + t.CalculaTributos());
+            ContaCorrente conta = new ContaCorrente();
+            conta.Deposita(100.0);
 
             SeguroDeVida sv = new SeguroDeVida();
-            MessageBox.Show("imposto do seguro = " + sv.CalculaTributos());
 
-            t = sv;
-            MessageBox.Show("imposto do seguro pela interface" + t.CalculaTributos());
+            TotalizadorDeTributos totalizador = new TotalizadorDeTributos();
+            totalizador.Adiciona(conta);
+            MessageBox.Show("Total: " + totalizador.Total);
+            totalizador.Adiciona(sv);
+            MessageBox.Show("Total: " + totalizador.Total);
         }
 
     }
